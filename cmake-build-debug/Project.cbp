@@ -37,8 +37,8 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/huchao/imu_localization/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="navgation_test">
-				<Option output="/home/huchao/imu_localization/bin/navgation_test" prefix_auto="0" extension_auto="0"/>
+			<Target title="matrix_test">
+				<Option output="/home/huchao/imu_localization/bin/matrix_test" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/huchao/imu_localization/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -56,14 +56,14 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/huchao/imu_localization/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 navgation_test"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/huchao/imu_localization/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 matrix_test"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/huchao/imu_localization/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/home/huchao/imu_localization/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/huchao/imu_localization/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="navgation_test/fast">
-				<Option output="/home/huchao/imu_localization/bin/navgation_test" prefix_auto="0" extension_auto="0"/>
+			<Target title="matrix_test/fast">
+				<Option output="/home/huchao/imu_localization/bin/matrix_test" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/huchao/imu_localization/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -81,7 +81,7 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/huchao/imu_localization/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 navgation_test/fast"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/huchao/imu_localization/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 matrix_test/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/huchao/imu_localization/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/home/huchao/imu_localization/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/huchao/imu_localization/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
@@ -89,13 +89,13 @@
 			</Target>
 		</Build>
 		<Unit filename="/home/huchao/imu_localization/src/imu.cpp">
-			<Option target="navgation_test"/>
+			<Option target="matrix_test"/>
 		</Unit>
 		<Unit filename="/home/huchao/imu_localization/src/imu_math.cpp">
-			<Option target="navgation_test"/>
+			<Option target="matrix_test"/>
 		</Unit>
-		<Unit filename="/home/huchao/imu_localization/test/navgation_test.cpp">
-			<Option target="navgation_test"/>
+		<Unit filename="/home/huchao/imu_localization/test/matrix_test.cpp">
+			<Option target="matrix_test"/>
 		</Unit>
 		<Unit filename="/home/huchao/imu_localization/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

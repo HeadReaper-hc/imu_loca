@@ -7,6 +7,8 @@
 #include "config.h"
 #include <Eigen/Dense>
 #include "imu_math.h"
+#include <iostream>
+#include <stdlib.h>
 
 namespace imu_loca
 {
@@ -15,6 +17,9 @@ namespace imu_loca
        bodyCoord.velocity = Eigen::Vector3d(0,0,0);
        bodyCoord.rota = Eigen::Matrix3d::Identity();
        bodyCoord.trans = Eigen::Vector3d(0,0,0);
+       omega_2.push_back(Eigen::Vector3d(0,0,0));
+       omega_2.push_back(Eigen::Vector3d(0,0,0));
+
     };
 
     imu::~imu(){};
@@ -38,14 +43,49 @@ namespace imu_loca
          return Eigen::Quaterniond ( bodyRotationUpdate(omega) );
      }
 
+    Eigen::Matrix3d imu::bodyEquivalentRotationVectorUpdate(const Eigen::Vector3d& omega)
+    {
+         try
+         {
+             if(omega_time==true)
+             {
+                 if( omega_2[0] != Eigen::Vector3d(0,0,0) || omega_2[1]!=Eigen::Vector3d(0,0,0))
+                     throw 0;
+                 omega_time= false;
+             }
+             if(omega_2.size()!=2)
+                 throw 1;
+         }
+         catch(int i)
+         {
+             if(i==0){
+                 std::cerr<<"init wrong"<<std::endl;
+                 exit(1);}
+             else{
+                 std::cerr<<"wrong size of omega_2"<<std::endl;
+                 exit(1);}
+         }
+
+         omega_2[1] = omega ;
+         Eigen::Vector3d a(omega_2[0]);
+         Eigen::Vector3d b((omega_2[1]-omega_2[0])/(2*delta_t));
+         Eigen::Vector3d delta_theta1(delta_t/2.0*a+delta_t*delta_t/4.0*b);
+         Eigen::Vector3d delta_theta2(delta_t/2.0*a+delta_t*delta_t*0.75*b);
+         Eigen::Vector3d delta_fai(delta_theta1+delta_theta2+2.0/3.0*getDissymmetyMatrix(delta_theta1)*delta_theta2);
+         Eigen::AngleAxisd fai(delta_fai.norm(),delta_fai.normalized());
+         omega_2[0]=omega_2[1];
+         return fai.toRotationMatrix();
+
+    }
+
      Eigen::Vector3d imu::bodyVelocityUpdate(const Eigen::Vector3d& acc)
      {
-         return bodyCoord.rota*acc*delta_t - Gravity_vec*delta_t ;
+         return bodyCoord.rota*acc*delta_t + Gravity_vec*delta_t ;
      }
 
      Eigen::Vector3d imu::bodyPositionUpdate(const Eigen::Vector3d& acc)
      {
-         return bodyCoord.velocity*delta_t + 0.5*bodyCoord.rota*acc*delta_t*delta_t - 0.5 * Gravity_vec *
+         return bodyCoord.velocity*delta_t + 0.5*bodyCoord.rota*acc*delta_t*delta_t + 0.5 * Gravity_vec *
                 delta_t*delta_t ;
      }
 

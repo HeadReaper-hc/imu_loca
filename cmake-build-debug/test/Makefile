@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/huchao/imu_localization/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/huchao/clion/clion-2018.2.3/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/home/huchao/clion/clion-2018.2.3/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,19 +111,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-test/CMakeFiles/navgation_test.dir/rule:
-	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/navgation_test.dir/rule
-.PHONY : test/CMakeFiles/navgation_test.dir/rule
+test/CMakeFiles/matrix_test.dir/rule:
+	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/matrix_test.dir/rule
+.PHONY : test/CMakeFiles/matrix_test.dir/rule
 
 # Convenience name for target.
-navgation_test: test/CMakeFiles/navgation_test.dir/rule
+matrix_test: test/CMakeFiles/matrix_test.dir/rule
 
-.PHONY : navgation_test
+.PHONY : matrix_test
 
 # fast build rule for target.
-navgation_test/fast:
-	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/navgation_test.dir/build.make test/CMakeFiles/navgation_test.dir/build
-.PHONY : navgation_test/fast
+matrix_test/fast:
+	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/matrix_test.dir/build.make test/CMakeFiles/matrix_test.dir/build
+.PHONY : matrix_test/fast
 
 __/src/imu.o: __/src/imu.cpp.o
 
@@ -131,7 +131,7 @@ __/src/imu.o: __/src/imu.cpp.o
 
 # target to build an object file
 __/src/imu.cpp.o:
-	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/navgation_test.dir/build.make test/CMakeFiles/navgation_test.dir/__/src/imu.cpp.o
+	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/matrix_test.dir/build.make test/CMakeFiles/matrix_test.dir/__/src/imu.cpp.o
 .PHONY : __/src/imu.cpp.o
 
 __/src/imu.i: __/src/imu.cpp.i
@@ -140,7 +140,7 @@ __/src/imu.i: __/src/imu.cpp.i
 
 # target to preprocess a source file
 __/src/imu.cpp.i:
-	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/navgation_test.dir/build.make test/CMakeFiles/navgation_test.dir/__/src/imu.cpp.i
+	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/matrix_test.dir/build.make test/CMakeFiles/matrix_test.dir/__/src/imu.cpp.i
 .PHONY : __/src/imu.cpp.i
 
 __/src/imu.s: __/src/imu.cpp.s
@@ -149,7 +149,7 @@ __/src/imu.s: __/src/imu.cpp.s
 
 # target to generate assembly for a file
 __/src/imu.cpp.s:
-	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/navgation_test.dir/build.make test/CMakeFiles/navgation_test.dir/__/src/imu.cpp.s
+	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/matrix_test.dir/build.make test/CMakeFiles/matrix_test.dir/__/src/imu.cpp.s
 .PHONY : __/src/imu.cpp.s
 
 __/src/imu_math.o: __/src/imu_math.cpp.o
@@ -158,7 +158,7 @@ __/src/imu_math.o: __/src/imu_math.cpp.o
 
 # target to build an object file
 __/src/imu_math.cpp.o:
-	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/navgation_test.dir/build.make test/CMakeFiles/navgation_test.dir/__/src/imu_math.cpp.o
+	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/matrix_test.dir/build.make test/CMakeFiles/matrix_test.dir/__/src/imu_math.cpp.o
 .PHONY : __/src/imu_math.cpp.o
 
 __/src/imu_math.i: __/src/imu_math.cpp.i
@@ -167,7 +167,7 @@ __/src/imu_math.i: __/src/imu_math.cpp.i
 
 # target to preprocess a source file
 __/src/imu_math.cpp.i:
-	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/navgation_test.dir/build.make test/CMakeFiles/navgation_test.dir/__/src/imu_math.cpp.i
+	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/matrix_test.dir/build.make test/CMakeFiles/matrix_test.dir/__/src/imu_math.cpp.i
 .PHONY : __/src/imu_math.cpp.i
 
 __/src/imu_math.s: __/src/imu_math.cpp.s
@@ -176,35 +176,35 @@ __/src/imu_math.s: __/src/imu_math.cpp.s
 
 # target to generate assembly for a file
 __/src/imu_math.cpp.s:
-	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/navgation_test.dir/build.make test/CMakeFiles/navgation_test.dir/__/src/imu_math.cpp.s
+	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/matrix_test.dir/build.make test/CMakeFiles/matrix_test.dir/__/src/imu_math.cpp.s
 .PHONY : __/src/imu_math.cpp.s
 
-navgation_test.o: navgation_test.cpp.o
+matrix_test.o: matrix_test.cpp.o
 
-.PHONY : navgation_test.o
+.PHONY : matrix_test.o
 
 # target to build an object file
-navgation_test.cpp.o:
-	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/navgation_test.dir/build.make test/CMakeFiles/navgation_test.dir/navgation_test.cpp.o
-.PHONY : navgation_test.cpp.o
+matrix_test.cpp.o:
+	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/matrix_test.dir/build.make test/CMakeFiles/matrix_test.dir/matrix_test.cpp.o
+.PHONY : matrix_test.cpp.o
 
-navgation_test.i: navgation_test.cpp.i
+matrix_test.i: matrix_test.cpp.i
 
-.PHONY : navgation_test.i
+.PHONY : matrix_test.i
 
 # target to preprocess a source file
-navgation_test.cpp.i:
-	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/navgation_test.dir/build.make test/CMakeFiles/navgation_test.dir/navgation_test.cpp.i
-.PHONY : navgation_test.cpp.i
+matrix_test.cpp.i:
+	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/matrix_test.dir/build.make test/CMakeFiles/matrix_test.dir/matrix_test.cpp.i
+.PHONY : matrix_test.cpp.i
 
-navgation_test.s: navgation_test.cpp.s
+matrix_test.s: matrix_test.cpp.s
 
-.PHONY : navgation_test.s
+.PHONY : matrix_test.s
 
 # target to generate assembly for a file
-navgation_test.cpp.s:
-	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/navgation_test.dir/build.make test/CMakeFiles/navgation_test.dir/navgation_test.cpp.s
-.PHONY : navgation_test.cpp.s
+matrix_test.cpp.s:
+	cd /home/huchao/imu_localization/cmake-build-debug && $(MAKE) -f test/CMakeFiles/matrix_test.dir/build.make test/CMakeFiles/matrix_test.dir/matrix_test.cpp.s
+.PHONY : matrix_test.cpp.s
 
 # Help Target
 help:
@@ -212,18 +212,18 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... navgation_test"
+	@echo "... edit_cache"
+	@echo "... matrix_test"
 	@echo "... __/src/imu.o"
 	@echo "... __/src/imu.i"
 	@echo "... __/src/imu.s"
 	@echo "... __/src/imu_math.o"
 	@echo "... __/src/imu_math.i"
 	@echo "... __/src/imu_math.s"
-	@echo "... navgation_test.o"
-	@echo "... navgation_test.i"
-	@echo "... navgation_test.s"
+	@echo "... matrix_test.o"
+	@echo "... matrix_test.i"
+	@echo "... matrix_test.s"
 .PHONY : help
 
 

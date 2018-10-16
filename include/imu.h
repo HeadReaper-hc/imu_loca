@@ -6,6 +6,7 @@
 #define IMU_H_
 #include <Eigen/Dense>
 #include "imu_abstract.h"
+#include <vector>
 
 
 namespace imu_loca
@@ -15,7 +16,7 @@ namespace imu_loca
         public:
 
 
-
+			imu(){};
             imu(Pose _inertiaCoord);
             ~imu();
 
@@ -28,6 +29,15 @@ namespace imu_loca
             virtual Eigen::Vector3d bodyPositionUpdate(const Eigen::Vector3d& acc) ;
 
             virtual void bodyPoseUpdate(const Eigen::Vector3d& acc , const Eigen::Vector3d& omega) ;
+
+            virtual Eigen::Matrix3d bodyEquivalentRotationVectorUpdate(const Eigen::Vector3d& omega) ;
+
+
+
+        private:
+
+        std::vector<Eigen::Vector3d> omega_2;
+        bool omega_time = true;
 
 
     };

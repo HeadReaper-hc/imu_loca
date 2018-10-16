@@ -8,7 +8,7 @@
 #include <Eigen/Dense>
 
 #define OmegaIe 0.00007292115
-#define delta_t 0.0025              //Gyro sampling period  400hz
+#define delta_t 0.01              //sampling period  100hz
 #define PI 3.1415926
 #define Gravity  9.8         //gravity acc
 #define Gravity_vec Eigen::Vector3d(0,0,Gravity)

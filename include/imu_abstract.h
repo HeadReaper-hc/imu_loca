@@ -9,6 +9,7 @@
 #include <math.h>
 #include "config.h"
 
+
 namespace imu_loca {
 
 
@@ -26,6 +27,8 @@ namespace imu_loca {
     public:
 
         EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+
+		imuAbstract(){};
 
         imuAbstract(Pose _inertiaCoord){inertiaCoord=_inertiaCoord;};
 
@@ -89,6 +92,8 @@ namespace imu_loca {
         virtual Eigen::Matrix3d bodyRotationUpdate(const Eigen::Vector3d& omega) =0;
 
         virtual Eigen::Quaterniond bodyQuaterniondUpdate(const Eigen::Vector3d& omega) =0;
+
+        virtual Eigen::Matrix3d bodyEquivalentRotationVectorUpdate(const Eigen::Vector3d& omega) =0;
 
         virtual Eigen::Vector3d bodyVelocityUpdate(const Eigen::Vector3d& acc) =0;
 
@@ -156,6 +161,7 @@ namespace imu_loca {
         double l;              //book(page17)  longitude
         double l0;             //book(page17)
         double L;              //latitude
+
     };
 }
 
